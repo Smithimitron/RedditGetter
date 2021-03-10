@@ -51,8 +51,9 @@ namespace RedditAPI.Controllers
                     {
                         name = s.ToUpper(),
                         mentions = 1,
+                        ticker = "nil",
                         collectedTime = DateTime.Now
-                    });
+                    }) ;
                     Console.WriteLine("i just putted stock " + s);
                 }
 
