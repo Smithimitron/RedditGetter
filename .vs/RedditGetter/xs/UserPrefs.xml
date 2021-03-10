@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{2D522DB1-BE14-44C6-B27E-494FD79F33BA}|Default">
+  <MonoDevelop.Ide.ItemProperties.RedditGetter PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RedditGetter/Controllers/StockController.cs">
+    <Files>
+      <File FileName="RedditGetter/Controllers/StockController.cs" Line="15" Column="48" />
+      <File FileName="RedditGetter/Stock.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RedditGetter" expanded="True">
+            <Node name="RedditGetter" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="StockController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
