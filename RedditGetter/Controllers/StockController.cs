@@ -112,7 +112,7 @@ namespace RedditAPI.Controllers
                     foreach (String word in words)
                     {
                         Console.WriteLine("working with word " + word);
-                        String poss = word.ToUpper();
+                        String poss = word;
                         bool iss;
                         if (bad.Contains(poss) || (badwords.Contains(poss)) || (poss.Length > 15))
                         {
