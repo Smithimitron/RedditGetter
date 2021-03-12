@@ -67,18 +67,6 @@ namespace RedditAPI.Controllers
                 });
             return stocks.ToArray();
         }
-
-        [NonAction]
-        private bool eitherUppercasedOrDollared(String t, String context)
-        {
-            bool retvar = false;
-            retvar = (t == t.ToUpper());
-            if (retvar)
-            {
-                retvar = context.ElementAt(context.IndexOf(t) - 1) == '$';
-            }
-            return retvar;
-        }
         [NonAction]
         public bool isStock(String word)
         {
@@ -119,26 +107,27 @@ namespace RedditAPI.Controllers
                     Console.WriteLine(response.ToString().Substring(0,254));
                 
                     String responseString = response.ToString();
-                    String fixedresp = getRidOfShit(responseString);
-                    String[] words = fixedresp.Split(" ");
+                    responseString = getRidOfShit(responseString);
+                    String[] words = responseString.Split(" ");
                     foreach (String word in words)
                     {
                         Console.WriteLine("working with word " + word);
                         String poss = word;
                         bool iss;
-                        if (!eitherUppercasedOrDollared(poss, responseString) || bad.Contains(poss) || (poss.Length > 15))
+                        if (bad.Contains(poss) || (badwords.Contains(poss)) || (poss.Length > 15))
                         {
                             iss = false;
                             Console.WriteLine(poss+" didnt meet the criteria");
                         }
-                        else if (retVar.Contains(poss))
+                        else
                         {
-                            Console.WriteLine("i saved time cos it already existed. no need to check again");
-                            iss = true;
-                        }
-                        else {
-                                iss = isStock(poss);
+                            if (retVar.Contains(poss))
+                            {
+                                Console.WriteLine("i saved time cos it already existed. no need to check again");
+                                iss = true;
                             }
+                            else { iss = isStock(poss); }
+                        }
                         if (iss)
                         {
                             Console.WriteLine(poss + " is a stock");
