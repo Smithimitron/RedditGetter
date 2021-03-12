@@ -70,7 +70,7 @@ namespace RedditAPI.Controllers
         [NonAction]
         public bool isStock(String word)
         {
-            return (tickers.Contains(word.ToUpper()));
+            return (tickers.Contains(word));
             //using (var wb = new WebClient())
             //{
             //    Console.Write(word);
@@ -103,7 +103,6 @@ namespace RedditAPI.Controllers
                 foreach (String url in urls)
                 {
                     Console.WriteLine(url);
-                https://localhost:5001/Stock
                     var response = wb.DownloadString(url);
                     Console.WriteLine(response.ToString().Substring(0,254));
                 
@@ -115,7 +114,7 @@ namespace RedditAPI.Controllers
                         Console.WriteLine("working with word " + word);
                         String poss = word.ToUpper();
                         bool iss;
-                        if (bad.Contains(poss) || (badwords.Contains(poss.ToLower())) || (poss.Length > 15))
+                        if (bad.Contains(poss) || (badwords.Contains(poss)) || (poss.Length > 15))
                         {
                             iss = false;
                             Console.WriteLine(poss+" didnt meet the criteria");
