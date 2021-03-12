@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.RedditGetter PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RedditGetter/Controllers/StockController.cs">
     <Files>
-      <File FileName="RedditGetter/Controllers/StockController.cs" Line="54" Column="40" />
+      <File FileName="RedditGetter/Controllers/StockController.cs" Line="41" Column="30" />
       <File FileName="RedditGetter/Stock.cs" />
     </Files>
     <Pads>
