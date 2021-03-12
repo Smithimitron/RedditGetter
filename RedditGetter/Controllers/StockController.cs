@@ -107,7 +107,7 @@ namespace RedditAPI.Controllers
                     Console.WriteLine(response.ToString().Substring(0,254));
                 
                     String responseString = response.ToString();
-                    responseString = getRidOfShit(responseString);
+                    String fixedresponse = getRidOfShit(responseString);
                     String[] words = responseString.Split(" ");
                     foreach (String word in words)
                     {
@@ -121,7 +121,7 @@ namespace RedditAPI.Controllers
                         }
                         else
                         {
-                            if (retVar.Contains(poss))
+                            if (retVar.Contains(poss) || responseString.ElementAt(responseString.IndexOf(word)-1)=='$')
                             {
                                 Console.WriteLine("i saved time cos it already existed. no need to check again");
                                 iss = true;
