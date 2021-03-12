@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{2D522DB1-BE14-44C6-B27E-494FD79F33BA}|Default">
   <MonoDevelop.Ide.ItemProperties.RedditGetter PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RedditGetter/Controllers/StockController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RedditGetter/Stock.cs">
     <Files>
-      <File FileName="RedditGetter/Controllers/StockController.cs" Line="54" Column="40" />
-      <File FileName="RedditGetter/Stock.cs" />
+      <File FileName="RedditGetter/Controllers/StockController.cs" Line="21" Column="54" />
+      <File FileName="RedditGetter/Stock.cs" Line="8" Column="42" />
+      <File FileName="RedditGetter/Properties/launchSettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RedditGetter" expanded="True">
             <Node name="RedditGetter" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="StockController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Stock.cs" selected="True" />
             </Node>
           </Node>
         </State>

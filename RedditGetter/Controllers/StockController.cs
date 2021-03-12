@@ -18,7 +18,7 @@ namespace RedditAPI.Controllers
         private static readonly String[] badwords = {"", "true","false","null","url","icon","null","iconurlwidth","height","amp","resizedicons","enddate", "count", "width", "height", "link"};
         private static readonly String[] urls =
         {
-            "https://www.reddit.com/r/wallstreetbets/search.rss?q=-flair%3AMeme%20-flair%3ASatire%20-flair%3AShitpost&restrict_sr=1&t=day&sort=hot","https://www.reddit.com/r/stocks/.rss","https://www.reddit.com/r/SecurityAnalysis/.rss?f=flair_name%3A%22Discussion%22"
+            "https://www.reddit.com/r/investing/.json","https://www.reddit.com/r/wallstreetbets/search.json?q=-flair%3AMeme%20-flair%3ASatire%20-flair%3AShitpost&restrict_sr=1&t=day&sort=hot","https://www.reddit.com/r/stocks/.json","https://www.reddit.com/r/SecurityAnalysis/.json?f=flair_name%3A%22Discussion%22"
         };
         private readonly ILogger<StockController> _logger;
 
@@ -87,7 +87,7 @@ namespace RedditAPI.Controllers
         public String getRidOfShit(String t)
         {
             String retvar = t;
-            char[] shitWeDontWant = "!.,\"\\{}[];:-=+_!@#$%^&*().,<>/?1234567890`~".ToCharArray();
+            char[] shitWeDontWant = "!.,\"\\{}[];:-=+_!@#%^&*().,<>/?1234567890`~".ToCharArray();
             foreach (var shit in shitWeDontWant)
             {
                 retvar = retvar.Replace(shit.ToString(), string.Empty);
@@ -107,17 +107,20 @@ namespace RedditAPI.Controllers
                     Console.WriteLine(response.ToString().Substring(0,254));
                 
                     String responseString = response.ToString();
-                    responseString = getRidOfShit(responseString);
                     String[] words = responseString.Split(" ");
                     foreach (String word in words)
                     {
                         Console.WriteLine("working with word " + word);
-                        String poss = word;
+                        String poss = getRidOfShit(word);
                         bool iss;
-                        if (bad.Contains(poss) || (badwords.Contains(poss)) || (poss.Length > 15))
+                        if (bad.Contains(poss) || (badwords.Contains(poss)) || (poss.Length > 15) || (poss.Length < 2))
                         {
                             iss = false;
                             Console.WriteLine(poss+" didnt meet the criteria");
+                        }
+                        else if (!((poss.ElementAt(0)=='$') || (poss==poss.ToUpper())))
+                        {
+                            iss = false;
                         }
                         else
                         {
