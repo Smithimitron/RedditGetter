@@ -15,7 +15,7 @@ namespace RedditAPI.Controllers
     public class StockController : ControllerBase
     {
         private String[] tickers = ShittyThings.tickers;
-        private static readonly String[] badwords = {"", "true","false","null","url","icon","null","iconurlwidth","height","amp","resizedicons","enddate", "count", "width", "height", "link"};
+        private static readonly String[] badwords = {"SCOFF","SCON", "", "true","false","null","url","icon","null","iconurlwidth","height","amp","resizedicons","enddate", "count", "width", "height", "link"};
         private static readonly String[] urls =
         {
             "https://www.reddit.com/r/investing/.json","https://www.reddit.com/r/wallstreetbets/search.json?q=-flair%3AMeme%20-flair%3ASatire%20-flair%3AShitpost&restrict_sr=1&t=day&sort=hot","https://www.reddit.com/r/stocks/.json","https://www.reddit.com/r/SecurityAnalysis/.json?f=flair_name%3A%22Discussion%22"
@@ -38,7 +38,7 @@ namespace RedditAPI.Controllers
                 bool makeNew = true;
                 foreach(Stock f in stocks)
                 {
-                    if(f.name.Equals(s.ToUpper()))
+                    if(f.name.ToUpper().Equals(s.ToUpper()))
                     {
                         f.mentions++;
                         makeNew = false;
@@ -83,11 +83,22 @@ namespace RedditAPI.Controllers
             }
 
         }
+        public String []getdataforstock(String ticker)
+        {
+            //after we know the stock exists, we are gonna make a web call based on this ...ticker? and return the real ticker and real name in a format like this
+            //retvar[0]="AAPL", retvar[1]="Apple Inc."
+            String[] retvar = { };
+            String url = "https://www.marketwatch.com/tools/quotes/lookup.asp?siteId=mktw&Lookup=" + ticker + "&Country=us&type=All";
+            using (var wb = new WebClient())
+            {
+                var response = wb.DownloadString(url.ToString()).ToString();
+            }
+        }
         [NonAction]
         public String getRidOfShit(String t)
         {
             String retvar = t;
-            char[] shitWeDontWant = "!.,\"\\{}[];:-=+_!@#%^&*().,<>/?1234567890`~".ToCharArray();
+            char[] shitWeDontWant = "!.$,\"\\{}[];:-=+_!@'#%^&*().,<>/?1234567890`~".ToCharArray();
             foreach (var shit in shitWeDontWant)
             {
                 retvar = retvar.Replace(shit.ToString(), string.Empty);
@@ -118,10 +129,6 @@ namespace RedditAPI.Controllers
                             iss = false;
                             Console.WriteLine(poss+" didnt meet the criteria");
                         }
-                        else if (!((poss.ElementAt(0)=='$') || (poss==poss.ToUpper())))
-                        {
-                            iss = false;
-                        }
                         else
                         {
                             if (retVar.Contains(poss))
@@ -141,7 +148,6 @@ namespace RedditAPI.Controllers
                             bad.Add(poss);
                             Console.WriteLine(poss + " is not a stock");
                         }
-                        else continue;
                     }
                 }
                 return retVar.ToArray();

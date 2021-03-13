@@ -11,9 +11,7 @@
         <State name="__root__">
           <Node name="RedditGetter" expanded="True">
             <Node name="RedditGetter" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="StockController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" selected="True" />
               <Node name="Properties" expanded="True" />
             </Node>
           </Node>
