@@ -70,17 +70,17 @@ namespace RedditAPI.Controllers
         [NonAction]
         public bool isStock(String word)
         {
-            return (tickers.Contains(word));
-            //using (var wb = new WebClient())
-            //{
-            //    Console.Write(word);
-            //    var response = wb.DownloadString("https://www.marketwatch.com/tools/quotes/lookup.asp?siteId=mktw&Lookup=" + word + "&Country=us&type=All");
-            //    if (response.ToString().Contains("no matches found"))
-            //    {
-            //        return false;
-            //    }
-            //    else return true;
-            //}
+            //return (tickers.Contains(word));
+            using (var wb = new WebClient())
+            {
+                Console.Write(word);
+                var response = wb.DownloadString("https://www.marketwatch.com/tools/quotes/lookup.asp?siteId=mktw&Lookup=" + word + "&Country=us&type=All");
+                if (response.ToString().Contains("no matches found"))
+                {
+                    return false;
+                }
+                else return true;
+            }
 
         }
         [NonAction]
