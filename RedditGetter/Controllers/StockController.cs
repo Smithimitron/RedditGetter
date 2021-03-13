@@ -93,6 +93,7 @@ namespace RedditAPI.Controllers
             {
                 var response = wb.DownloadString(url.ToString()).ToString();
             }
+            return retvar;
         }
         [NonAction]
         public String getRidOfShit(String t)
