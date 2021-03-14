@@ -4421,6 +4421,7 @@ namespace RedditAPI.Controllers
         [NonAction]
         public bool isStock(String word)
         {
+<<<<<<< HEAD
             if((isCommonEnglish(word)||(isANono(word)) || (alreadyBeenCheckedBad(word))){
                 return false;
             }
@@ -4448,6 +4449,20 @@ namespace RedditAPI.Controllers
                 }
                 return retvar;
             }
+=======
+            return (tickers.Contains(word));
+            //using (var wb = new WebClient())
+            //{
+            //    Console.Write(word);
+            //    var response = wb.DownloadString("https://www.marketwatch.com/tools/quotes/lookup.asp?siteId=mktw&Lookup=" + word + "&Country=us&type=All");
+            //    if (response.ToString().Contains("no matches found"))
+            //    {
+            //        return false;
+            //    }
+            //    else return true;
+            //}
+
+>>>>>>> parent of fbf623e (stupid commit)
         }
         
         [NonAction]
