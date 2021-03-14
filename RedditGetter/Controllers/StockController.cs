@@ -4422,6 +4422,7 @@ namespace RedditAPI.Controllers
         public bool isStock(String word)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if((isCommonEnglish(word)||(isANono(word)) || (alreadyBeenCheckedBad(word))){
                 return false;
             }
@@ -4450,6 +4451,8 @@ namespace RedditAPI.Controllers
                 return retvar;
             }
 =======
+=======
+>>>>>>> parent of fbf623e (stupid commit)
             return (tickers.Contains(word));
             //using (var wb = new WebClient())
             //{
