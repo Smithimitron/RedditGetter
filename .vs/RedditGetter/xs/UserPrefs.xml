@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.RedditGetter PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RedditGetter/Controllers/StockController.cs">
     <Files>
-      <File FileName="RedditGetter/Controllers/StockController.cs" Line="73" Column="47" />
+      <File FileName="RedditGetter/Controllers/StockController.cs" Line="4435" Column="1" />
       <File FileName="RedditGetter/Stock.cs" />
       <File FileName="RedditGetter/Properties/launchSettings.json" />
     </Files>
@@ -11,7 +11,9 @@
         <State name="__root__">
           <Node name="RedditGetter" expanded="True">
             <Node name="RedditGetter" expanded="True">
-              <Node name="Controllers" expanded="True" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="StockController.cs" selected="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
             </Node>
           </Node>
